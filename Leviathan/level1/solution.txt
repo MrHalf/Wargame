@@ -1,0 +1,84 @@
+leviathan1@melinda:~$ gdb check
+GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.2) 7.7.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from check...(no debugging symbols found)...done.
+(gdb) disas main
+Dump of assembler code for function main:
+   0x0804852d <+0>:	push   %ebp
+   0x0804852e <+1>:	mov    %esp,%ebp
+   0x08048530 <+3>:	and    $0xfffffff0,%esp
+   0x08048533 <+6>:	sub    $0x30,%esp
+   0x08048536 <+9>:	mov    %gs:0x14,%eax
+   0x0804853c <+15>:	mov    %eax,0x2c(%esp)
+   0x08048540 <+19>:	xor    %eax,%eax
+   0x08048542 <+21>:	movl   $0x786573,0x18(%esp)
+   0x0804854a <+29>:	movl   $0x72636573,0x25(%esp)
+   0x08048552 <+37>:	movw   $0x7465,0x29(%esp)
+   0x08048559 <+44>:	movb   $0x0,0x2b(%esp)
+   0x0804855e <+49>:	movl   $0x646f67,0x1c(%esp)
+   0x08048566 <+57>:	movl   $0x65766f6c,0x20(%esp)
+   0x0804856e <+65>:	movb   $0x0,0x24(%esp)
+   0x08048573 <+70>:	movl   $0x8048680,(%esp)
+   0x0804857a <+77>:	call   0x80483c0 <printf@plt>
+   0x0804857f <+82>:	call   0x80483d0 <getchar@plt>
+   0x08048584 <+87>:	mov    %al,0x14(%esp)
+   0x08048588 <+91>:	call   0x80483d0 <getchar@plt>
+   0x0804858d <+96>:	mov    %al,0x15(%esp)
+   0x08048591 <+100>:	call   0x80483d0 <getchar@plt>
+   0x08048596 <+105>:	mov    %al,0x16(%esp)
+   0x0804859a <+109>:	movb   $0x0,0x17(%esp)
+---Type <return> to continue, or q <return> to quit---
+   0x0804859f <+114>:	lea    0x18(%esp),%eax
+   0x080485a3 <+118>:	mov    %eax,0x4(%esp)
+   0x080485a7 <+122>:	lea    0x14(%esp),%eax
+   0x080485ab <+126>:	mov    %eax,(%esp)
+   0x080485ae <+129>:	call   0x80483b0 <strcmp@plt>
+   0x080485b3 <+134>:	test   %eax,%eax
+   0x080485b5 <+136>:	jne    0x80485c5 <main+152>
+   0x080485b7 <+138>:	movl   $0x804868b,(%esp)
+   0x080485be <+145>:	call   0x8048400 <system@plt>
+   0x080485c3 <+150>:	jmp    0x80485d1 <main+164>
+   0x080485c5 <+152>:	movl   $0x8048693,(%esp)
+   0x080485cc <+159>:	call   0x80483f0 <puts@plt>
+   0x080485d1 <+164>:	mov    $0x0,%eax
+   0x080485d6 <+169>:	mov    0x2c(%esp),%edx
+   0x080485da <+173>:	xor    %gs:0x14,%edx
+   0x080485e1 <+180>:	je     0x80485e8 <main+187>
+   0x080485e3 <+182>:	call   0x80483e0 <__stack_chk_fail@plt>
+   0x080485e8 <+187>:	leave
+   0x080485e9 <+188>:	ret
+End of assembler dump.
+(gdb) b *0x080485ae
+Breakpoint 1 at 0x80485ae
+(gdb) r
+Starting program: /home/leviathan1/check
+password: test
+
+Breakpoint 1, 0x080485ae in main ()
+(gdb) x/4s $eax
+0xffffd644: "tes"
+0xffffd648: "sex"
+0xffffd64c: "god"
+0xffffd650: "love"
+(gdb) q
+A debugging session is active.
+
+   Inferior 1 [process 20476] will be killed.
+
+Quit anyway? (y or n) y
+leviathan1@melinda:~$ ./check
+password: sex
+$ cat /etc/leviathan_pass/leviathan2
+ougahZi8Ta
