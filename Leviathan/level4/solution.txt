@@ -1,0 +1,17 @@
+leviathan4@melinda:~$ ls -a
+.  ..  .bash_logout  .bashrc  .profile  .trash
+leviathan4@melinda:~$ cd .trash
+leviathan4@melinda:~/.trash$ ls
+bin
+leviathan4@melinda:~/.trash$ ./bin
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+
+
+>>> text = "01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010"
+>>> text = text.split()
+>>> result = ""
+>>> for i in text:
+...     result += chr(int(i,2))
+...
+>>> print result
+Tith4cokei

